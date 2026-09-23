@@ -362,12 +362,10 @@ img {
 
 /* ---------- Boxes ---------- */
 
-.boxes {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 1rem var(--gutter);
-  display: grid;
-  gap: 1rem;
+.screen {
+  padding: 1rem max(var(--gutter), calc((100vw - var(--max-width)) / 2 + var(--gutter)));
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
@@ -429,6 +427,7 @@ img {
 }
 
 .photo {
+  position: relative;
   margin: 0;
   overflow: hidden;
   border-radius: 2px;
@@ -437,6 +436,8 @@ img {
 }
 
 .photo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -550,6 +551,64 @@ footer {
 
 /* ---------- Responsive ---------- */
 
+/* One-pager: every section is one full screen, scrolling snaps section by section (desktop only) */
+
+@media (min-width: 901px) and (min-height: 640px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+
+  .hero,
+  .screen,
+  footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .screen {
+    min-height: 100svh;
+    padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  .screen .row {
+    flex: 1;
+    min-height: 0;
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .screen .photo {
+    aspect-ratio: auto;
+  }
+
+  .screen .row--four {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .row--four > :nth-child(3) {
+    order: 4;
+  }
+
+  .photo--band img {
+    object-position: 50% 62% !important;
+  }
+
+  .palette-bar {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-sign {
+    margin-bottom: 2.5rem;
+  }
+
+  footer {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     grid-template-columns: auto auto;
@@ -573,11 +632,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .row--flip > .photo {
-    order: -1;
-  }
-
-  .box {
+    .box {
     padding: 1.8rem;
   }
 
