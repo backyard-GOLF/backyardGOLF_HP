@@ -248,20 +248,22 @@ img {
 .l3-char {
   position: relative;
   display: inline-block;
-  height: 1lh;
+  height: var(--l3-h, 1.05em);
   transform-style: preserve-3d;
-  transform: translateZ(-0.5lh);
+  -webkit-transform-style: preserve-3d;
+  transform: translateZ(calc(var(--l3-h, 1.05em) * -0.5));
 }
 
 .l3-face {
   display: block;
-  height: 1lh;
+  height: var(--l3-h, 1.05em);
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   white-space: pre;
 }
 
 .l3-front {
-  transform: translateZ(0.5lh);
+  transform: translateZ(calc(var(--l3-h, 1.05em) * 0.5));
 }
 
 .l3-back {
@@ -269,7 +271,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  transform: rotateX(-90deg) translateZ(0.5lh);
+  transform: rotateX(-90deg) translateZ(calc(var(--l3-h, 1.05em) * 0.5));
 }
 
 /* ---------- Hero ---------- */

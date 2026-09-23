@@ -62,30 +62,46 @@ const initLetterSwap = (root) => {
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const staggerMs = 30;
-  const rest = "translateZ(-0.5lh) rotateX(0deg)";
-  const flipped = "translateZ(-0.5lh) rotateX(90deg)";
+  const durationMs = 550;
+  const chars = Array.from(root.querySelectorAll(".l3-char"));
   let running = false;
 
-  const play = async () => {
-    if (running || reduceMotion.matches) return;
+  const lineHeightPx = () => {
+    const cs = getComputedStyle(root);
+    return parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.05;
+  };
+
+  const syncHeight = () => root.style.setProperty("--l3-h", `${lineHeightPx()}px`);
+  syncHeight();
+  new ResizeObserver(syncHeight).observe(root);
+  if (document.fonts) document.fonts.ready.then(syncHeight);
+
+  const play = () => {
+    if (running) return;
     running = true;
 
-    const animations = Array.from(root.querySelectorAll(".l3-char")).map((char, i) =>
+    const half = lineHeightPx() / 2;
+    const rest = `translateZ(${-half}px) rotateX(0deg)`;
+    const flipped = `translateZ(${-half}px) rotateX(90deg)`;
+
+    chars.forEach((char, i) => {
       char.animate([{ transform: rest }, { transform: flipped }], {
-        duration: 650,
+        duration: durationMs,
         delay: i * staggerMs,
         easing: "cubic-bezier(0.22, 1, 0.36, 1)",
         fill: "backwards",
-      }).finished
-    );
+      });
+    });
 
-    await Promise.allSettled(animations);
-    running = false;
+    setTimeout(() => {
+      running = false;
+    }, durationMs + chars.length * staggerMs + 50);
   };
 
   root.addEventListener("mouseenter", play);
   root.addEventListener("click", play);
-  setTimeout(play, 700);
+  root.addEventListener("touchstart", play, { passive: true });
+  if (!reduceMotion.matches) setTimeout(play, 700);
 };
 
 document.querySelectorAll("[data-letter-swap]").forEach(initLetterSwap);
