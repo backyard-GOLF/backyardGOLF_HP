@@ -12,8 +12,8 @@ Richtet sich nach dem echten Brandbook (`backyardGOLFxJonnyM_Styleguide_S01V01_S
 - Logo (`.logo` in index.html) ist als HTML/CSS nachgebaut, nicht als Bild — aktuell nur als Creme-auf-Dunkel-Variante (Header, Footer). Auf hellen Hintergründen laut Styleguide die farbige Variante nutzen (Kreise gefüllt: G Blush, O Green, L Sky, F Gold, Iron-Kontur/-Schrift). Farben, Reihenfolge und Proportionen des Logos nicht verändern (Styleguide-Vorgabe).
 - Tagline "same game different place." ist ein fixer Kampagnen-Claim aus dem Brandbook — bewusst unübersetzt im Hero belassen.
 
-## Bilder (offen)
-Alle Bildflächen sind aktuell `.ph`-Platzhalter mit gestricheltem Hinweistext ("Foto folgt — ..."). Sobald Material da ist (u. a. das Kampagnenmotiv mit dem Golfer im Konferenzraum), Dateien in `/images` legen und das jeweilige `.ph` durch ein `<img>` ersetzen: Kampagnenband unter dem Hero (`.campaign`), Konzept (Innenraum), Bay 1, Bay 2, Lounge.
+## Bilder
+Fotos liegen in `/images` (campaign, konzept-sofa, bay-1-putting, bay-2-players, lounge-bench) und sind als `<figure class="photo ...">` eingebaut; der Bildausschnitt wird pro Bild über `object-position` im `<img>` gesteuert. Noch unbenutzt im Ordner: ` -3.jpg`, `Red Golf Addiction Tees Set of 3.jpg`, `TOPS.jpg`. Die Fotos sind teils niedrig aufgelöst (736 px) — für die finale Seite hochauflösende Originale nehmen.
 
 ## Buchungssystem (offen)
 In `index.html` gibt es einen klar markierten Platzhalter: `.booking-embed-slot` im Abschnitt `#booking`. Sobald ein Anbieter feststeht, kommt dessen Embed (iframe/Widget/Script) dort rein — Preise/Fakten links daneben in `.booking-facts` entsprechend anpassen.

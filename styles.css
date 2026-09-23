@@ -349,24 +349,18 @@ section {
   margin: 0;
 }
 
-/* Image placeholders — swap for real <img> once photography is ready */
+/* Photos */
 
-.ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 248, 238, 0.55);
-  border: 1px solid rgba(25, 25, 25, 0.16);
+.photo {
+  margin: 0;
+  overflow: hidden;
+  background: rgba(25, 25, 25, 0.08);
 }
 
-.ph span {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--soft-iron);
-  border: 1px dashed rgba(25, 25, 25, 0.4);
-  padding: 0.5rem 0.9rem;
-  border-radius: 2px;
-  text-align: center;
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ph--sq { aspect-ratio: 1 / 1; }
@@ -381,17 +375,9 @@ section {
   background: var(--cream);
 }
 
-.campaign .ph {
-  border-left: none;
-  border-right: none;
-  background:
-    radial-gradient(60% 120% at 12% 30%, rgba(216, 169, 190, 0.7), transparent 70%),
-    radial-gradient(55% 120% at 88% 70%, rgba(169, 204, 160, 0.7), transparent 70%),
-    var(--cream);
-}
-
 @media (max-width: 720px) {
-  .ph--band { aspect-ratio: 4 / 3; }
+  .ph--band { aspect-ratio: 3 / 4; }
+  .ph--band img { object-position: 50% 60% !important; }
 }
 
 /* Concept */
@@ -431,7 +417,7 @@ section {
   border-top: 1px solid rgba(25, 25, 25, 0.22);
 }
 
-.bay-feature:nth-of-type(even) .ph {
+.bay-feature:nth-of-type(even) .photo {
   order: 2;
 }
 
@@ -662,7 +648,7 @@ footer {
     gap: 1.6rem;
   }
 
-  .bay-feature:nth-of-type(even) .ph {
+  .bay-feature:nth-of-type(even) .photo {
     order: 0;
   }
 
