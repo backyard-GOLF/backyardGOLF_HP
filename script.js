@@ -121,3 +121,56 @@ document.querySelectorAll("[data-text-roll]").forEach((el) => {
   el.appendChild(buildRow("tr-top"));
   el.appendChild(buildRow("tr-bottom"));
 });
+
+/* Golf ball scrollbar: the ball follows the scroll position and can be dragged or the track clicked. */
+
+const ball = document.querySelector(".ballbar-ball");
+const track = document.querySelector(".ballbar-track");
+const hit = document.querySelector(".ballbar-hit");
+
+if (ball && track && hit) {
+  const root = document.documentElement;
+  const scrollMax = () => root.scrollHeight - window.innerHeight;
+  const geometry = () => {
+    const rect = track.getBoundingClientRect();
+    return { top: rect.top, travel: Math.max(rect.height - ball.offsetHeight, 1) };
+  };
+
+  const sync = () => {
+    const max = scrollMax();
+    if (max <= 0 || getComputedStyle(ball).display === "none") return;
+    const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
+    ball.style.transform = `translateY(${progress * geometry().travel}px)`;
+    ball.style.setProperty("--rot", `${progress * 1080}deg`);
+  };
+
+  const scrollToClientY = (clientY, instant) => {
+    const { top, travel } = geometry();
+    const progress = Math.min(Math.max((clientY - top - ball.offsetHeight / 2) / travel, 0), 1);
+    window.scrollTo({ top: progress * scrollMax(), behavior: instant ? "instant" : "smooth" });
+  };
+
+  const startDrag = (event) => {
+    event.preventDefault();
+    root.classList.add("is-dragging");
+    ball.classList.add("is-grabbed");
+    ball.setPointerCapture(event.pointerId);
+    ball.addEventListener("pointermove", onDrag);
+  };
+  const onDrag = (event) => scrollToClientY(event.clientY, true);
+  const endDrag = (event) => {
+    ball.removeEventListener("pointermove", onDrag);
+    ball.classList.remove("is-grabbed");
+    root.classList.remove("is-dragging");
+    if (ball.hasPointerCapture(event.pointerId)) ball.releasePointerCapture(event.pointerId);
+  };
+
+  ball.addEventListener("pointerdown", startDrag);
+  ball.addEventListener("pointerup", endDrag);
+  ball.addEventListener("pointercancel", endDrag);
+  hit.addEventListener("click", (event) => scrollToClientY(event.clientY, false));
+
+  window.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
+  sync();
+}
