@@ -50,12 +50,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body::before {
-  content: "";
+.bg-video {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("images/Hintergrund.jpg") center / cover no-repeat;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 a {

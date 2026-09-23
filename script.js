@@ -105,3 +105,6 @@ const initLetterSwap = (root) => {
 };
 
 document.querySelectorAll("[data-letter-swap]").forEach(initLetterSwap);
+
+const bgVideo = document.querySelector(".bg-video");
+if (bgVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) bgVideo.pause();
