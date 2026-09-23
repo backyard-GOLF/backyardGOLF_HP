@@ -523,6 +523,41 @@ footer {
 
 /* ---------- Responsive ---------- */
 
+/* ---------- Shop ---------- */
+
+.row--shop {
+  grid-template-columns: 1fr 1fr;
+}
+
+.product {
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding: 1.6rem;
+}
+
+.product-art {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-art svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  filter: drop-shadow(0 8px 14px rgba(25, 25, 25, 0.18));
+}
+
+.product-meta p {
+  margin: 0 0 0.3rem;
+}
+
+.product-meta .btn {
+  margin-top: 0.8rem;
+}
+
 /* One-pager: every section is one full screen, scrolling snaps section by section (desktop only) */
 
 @media (min-width: 901px) and (min-height: 640px) {
@@ -551,6 +586,15 @@ footer {
 
   .screen .photo {
     aspect-ratio: auto;
+  }
+
+  .row--shop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-art svg {
+    height: 100%;
+    max-height: 100%;
   }
 
   .screen .row--four {

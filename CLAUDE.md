@@ -17,3 +17,6 @@ Fotos liegen in `/images` (campaign, konzept-sofa, bay-1-putting, bay-2-players,
 
 ## Buchungssystem (offen)
 In `index.html` gibt es einen klar markierten Platzhalter: `.booking-embed-slot` im Abschnitt `#booking`. Sobald ein Anbieter feststeht, kommt dessen Embed (iframe/Widget/Script) dort rein — Preise/Fakten links daneben in `.booking-facts` entsprechend anpassen.
+
+## Shop (Clothing)
+Abschnitt `#clothing` mit zwei Shirts (Logo Tee Iron Grey / Cream). Die Shirts sind als Inline-SVG-Mockups mit dem Logo gebaut, bis echte Produktfotos da sind; Preise (45 €) und Mailadresse (`shop@backyardgolf.example`) sind Platzhalter. "Bestellen" öffnet aktuell eine Mail. Später z. B. Stripe Payment Links oder Shopify Buy Button einbinden.
