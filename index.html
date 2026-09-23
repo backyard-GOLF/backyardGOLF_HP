@@ -13,15 +13,15 @@
 <body>
 
   <header class="site-header" id="site-header">
-    <a href="#top" class="logo logo--negative logo--header">
+    <a href="#top" class="logo logo--header">
       <span>JONNY M.</span>
       <span class="logo-x">x</span>
       <span class="logo-backyard">backyard</span>
       <span class="logo-golf">
-        <span class="golf-badge golf-badge--g">G</span>
-        <span class="golf-badge golf-badge--o">O</span>
-        <span class="golf-badge golf-badge--l">L</span>
-        <span class="golf-badge golf-badge--f">F</span>
+        <span class="golf-badge">G</span>
+        <span class="golf-badge">O</span>
+        <span class="golf-badge">L</span>
+        <span class="golf-badge">F</span>
       </span>
     </a>
     <nav class="main-nav" id="main-nav">
@@ -29,65 +29,49 @@
       <a href="#bays">Bays</a>
       <a href="#lounge">Lounge</a>
       <a href="#kontakt">Kontakt</a>
-      <a href="#booking" class="btn btn-on-dark">Bay reservieren</a>
+      <a href="#booking" class="btn btn-gold">Bay reservieren</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">☰</button>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="hero-media">
-        <div class="hero-media-top">
-          <div class="logo logo--negative logo--stacked logo--big">
-            <span>JONNY M.</span>
-            <span class="logo-x">x</span>
-            <span class="logo-backyard">backyard</span>
-            <span class="logo-golf">
-              <span class="golf-badge golf-badge--g">G</span>
-              <span class="golf-badge golf-badge--o">O</span>
-              <span class="golf-badge golf-badge--l">L</span>
-              <span class="golf-badge golf-badge--f">F</span>
-            </span>
-          </div>
-        </div>
-        <p class="hero-photo-note">Kampagnenbild folgt — Datei in /images ablegen</p>
-        <div class="hero-media-bottom">
-          <p class="hero-tagline">same game<br />different place.</p>
-        </div>
-      </div>
-      <div class="hero-footline wrap">
-        <p class="hero-sub">Golf ohne Platz: zwei Simulator-Bays und eine Lounge, in der die Runde nicht endet, wenn der letzte Abschlag sitzt.</p>
-        <div class="hero-actions">
-          <a href="#booking" class="btn btn-on-dark">Bay reservieren</a>
-          <a href="#konzept" class="btn btn-ghost">Konzept ansehen</a>
-        </div>
+      <h1 class="hero-tagline l3" data-letter-swap aria-label="same game different place.">same game<br />different place.</h1>
+      <p class="hero-sub">Golf ohne Platz: zwei Simulator-Bays und eine Lounge, in der die Runde nicht endet, wenn der letzte Abschlag sitzt.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn">Bay reservieren</a>
+        <a href="#konzept" class="btn btn-ghost">Konzept ansehen</a>
       </div>
     </section>
 
-    <section id="konzept">
+    <section class="campaign" aria-label="Kampagnenbild">
+      <div class="ph ph--band"><span>Foto folgt — Kampagnenbild (Datei in /images ablegen)</span></div>
+    </section>
+
+    <section id="konzept" class="concept-section">
       <div class="wrap concept">
         <div class="concept-copy">
+          <span class="chapter" aria-hidden="true">K</span>
           <h2>Selbes Spiel. Anderer Ort.</h2>
           <p>Draußen entscheidet das Wetter, drinnen der Zeitplan. Der Screen ersetzt den Himmel, der Bay-Teppich das Fairway — der Rest bleibt Golf: Anspiel, Carry, der eine Schlag, über den man an der Bar noch redet.</p>
           <p>Was sich ändert, ist der Ort danach. Kein Weg zum Auto, kein Umziehen — nur ein paar Schritte zum Sofa.</p>
         </div>
-        <div class="placeholder-img">
-          <span>Foto folgt — Innenraum</span>
-        </div>
+        <div class="ph ph--sq"><span>Foto folgt — Innenraum</span></div>
       </div>
     </section>
 
     <section id="bays" class="bays">
       <div class="wrap">
         <div class="section-head">
+          <span class="chapter" aria-hidden="true">B</span>
           <h2>Zwei Bays, echte Plätze</h2>
           <p>High-Speed-Kameras, über 100 hinterlegte Plätze weltweit, Ballflug wie draußen — nur ohne Regen.</p>
         </div>
 
         <div class="bay-feature">
-          <div class="bay-media"><span>Foto folgt — Bay 1</span></div>
+          <div class="ph ph--43"><span>Foto folgt — Bay 1</span></div>
           <div class="bay-copy">
-            <span class="bay-name">Bay 1</span>
+            <span class="chapter" aria-hidden="true">1</span>
             <h3>Für die ernste Runde</h3>
             <p>18 Loch auf einem der hinterlegten Championship-Courses, mit vollem Tracking von Carry, Spin und Ballgeschwindigkeit.</p>
             <p>1–4 Personen. Schläger und Bälle sind vor Ort, eigenes Equipment ist willkommen.</p>
@@ -95,9 +79,9 @@
         </div>
 
         <div class="bay-feature">
-          <div class="bay-media"><span>Foto folgt — Bay 2</span></div>
+          <div class="ph ph--43"><span>Foto folgt — Bay 2</span></div>
           <div class="bay-copy">
-            <span class="bay-name">Bay 2</span>
+            <span class="chapter" aria-hidden="true">2</span>
             <h3>Für Longest Drive &amp; Minispiele</h3>
             <p>Wenn niemand wirklich zählen will: Target-Games, Longest-Drive-Contests, kurze Runden zwischendurch.</p>
             <p>Bis zu 6 Personen. Gut für Gruppen, Geburtstage, den Abend nach der Arbeit.</p>
@@ -106,13 +90,12 @@
       </div>
     </section>
 
-    <section id="lounge">
+    <section id="lounge" class="lounge">
       <div class="wrap lounge-layout">
-        <div class="placeholder-img lounge-media">
-          <span>Foto folgt — Lounge</span>
-        </div>
+        <div class="ph ph--34"><span>Foto folgt — Lounge</span></div>
         <div>
           <div class="section-head">
+            <span class="chapter" aria-hidden="true">L</span>
             <h2>Der Teil ohne Schläger</h2>
             <p>Warmes Licht, gute Musik, kein Grund zu gehen, nur weil die Runde vorbei ist.</p>
           </div>
@@ -145,7 +128,7 @@
               <li>Verlängerung im 30-Min-Takt</li>
               <li>Eigene Getränke von der Bar, keine Mitbringpflicht für Equipment</li>
             </ul>
-            <a href="mailto:reservierung@backyardgolf.example" class="btn btn-on-dark">Direkt anfragen</a>
+            <a href="mailto:reservierung@backyardgolf.example" class="btn btn-gold">Direkt anfragen</a>
           </div>
           <div class="booking-embed-slot">
             <span class="tag">Buchungssystem folgt</span>
@@ -157,16 +140,17 @@
   </main>
 
   <footer id="kontakt">
+    <div class="palette-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <div class="footer-sign logo logo--negative logo--stacked logo--big">
+      <div class="footer-sign logo logo--stacked logo--big">
         <span>JONNY M.</span>
         <span class="logo-x">x</span>
         <span class="logo-backyard">backyard</span>
         <span class="logo-golf">
-          <span class="golf-badge golf-badge--g">G</span>
-          <span class="golf-badge golf-badge--o">O</span>
-          <span class="golf-badge golf-badge--l">L</span>
-          <span class="golf-badge golf-badge--f">F</span>
+          <span class="golf-badge">G</span>
+          <span class="golf-badge">O</span>
+          <span class="golf-badge">L</span>
+          <span class="golf-badge">F</span>
         </span>
       </div>
       <div class="footer-grid">
