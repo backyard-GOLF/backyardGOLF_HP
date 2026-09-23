@@ -42,12 +42,20 @@ html {
 
 body {
   margin: 0;
-  background: var(--cream);
+  background: var(--green);
   color: var(--iron);
   font-family: var(--font);
   font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("images/Hintergrund.jpg") center / cover no-repeat;
 }
 
 a {
