@@ -175,17 +175,6 @@ img {
   color: var(--gold);
 }
 
-.btn-ghost {
-  background: transparent;
-  color: var(--iron);
-}
-
-.btn-ghost:hover,
-.btn-ghost:focus-visible {
-  background: var(--iron);
-  color: var(--cream);
-}
-
 /* ---------- Header ---------- */
 
 .site-header {
@@ -285,21 +274,6 @@ img {
   text-align: center;
 }
 
-.hero-foot {
-  grid-row: 3;
-  align-self: end;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero-sub {
-  font-size: 1.15rem;
-  color: var(--soft-iron);
-  max-width: 44ch;
-  margin: 0 0 1.6rem;
-}
-
 /* Text roll menu (hero) */
 
 .hero-menu {
@@ -325,6 +299,10 @@ img {
   color: var(--iron);
 }
 
+.tr--highlight {
+  color: var(--cream);
+}
+
 .tr-top {
   display: block;
 }
@@ -336,6 +314,7 @@ img {
 
 .tr-char {
   display: inline-block;
+  white-space: pre;
   transition: transform 0.3s ease-in-out !important;
 }
 
@@ -351,13 +330,6 @@ img {
 .tr:hover .tr-bottom .tr-char,
 .tr:focus-visible .tr-bottom .tr-char {
   transform: translateY(0);
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 /* ---------- Boxes ---------- */
