@@ -1,18 +1,3 @@
-const navToggle = document.getElementById("nav-toggle");
-const mainNav = document.getElementById("main-nav");
-
-navToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-mainNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("is-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  });
-});
-
 /* Letter 3D swap: each character rolls up to reveal an identical second face, staggered left to right. */
 
 const splitGraphemes = (text) =>
