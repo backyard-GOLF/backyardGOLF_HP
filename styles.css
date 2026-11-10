@@ -13,7 +13,7 @@
   --font: "Inter", sans-serif;
   --max-width: 1240px;
   --gutter: 6vw;
-  --header-h: 4.6rem;
+  --header-h: 6.2rem;
 }
 
 * {
@@ -42,21 +42,14 @@ html {
 
 body {
   margin: 0;
-  background: var(--green);
+  background: var(--iron);
   color: var(--iron);
   font-family: var(--font);
+  /* Styleguide: all copy is lowercase. Logos and the written brand name keep their casing. */
+  text-transform: lowercase;
   font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-}
-
-.bg-video {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 a {
@@ -77,65 +70,72 @@ img {
 
 /* ---------- Logo (fixed brand asset — colors/proportions must not change) ---------- */
 
+.logo,
+.brand {
+  text-transform: none;
+}
+
 .logo {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.32em;
-  font-weight: 800;
-  letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--cream);
   white-space: nowrap;
 }
 
+.logo img {
+  display: block;
+  flex: none;
+}
+
 .logo .logo-x {
   font-weight: 600;
-  font-size: 0.6em;
-  opacity: 0.75;
-}
-
-.logo .logo-backyard {
-  text-transform: lowercase;
-}
-
-.logo-golf {
-  display: inline-flex;
-  align-self: center;
-  gap: 0.14em;
-  margin-left: 0.08em;
-}
-
-.golf-badge {
-  width: 1.3em;
-  height: 1.3em;
-  flex: none;
-  border-radius: 50%;
-  border: 0.09em solid currentColor;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9em;
-  font-weight: 800;
   line-height: 1;
 }
 
+/* Horizontal: sized off the JONNY M. cap height (1em). Images sit with their
+   bottom edge on the baseline, so backyard (and GOLF, same height, top-aligned
+   with it like in the brandbook) are shifted down by their descender. */
+.logo--header .logo-jm {
+  height: 1em;
+}
+
+.logo--header .logo-x {
+  font-size: 1.3em;
+  margin: 0 0.62em;
+}
+
+.logo--header .logo-backyard,
+.logo--header .logo-golf {
+  height: 1.51em;
+  position: relative;
+  top: 0.34em;
+}
+
+.logo--header .logo-golf {
+  margin-left: 0.3em;
+}
+
+/* Stacked: JONNY M. and backyard GOLF share the same width. */
 .logo--stacked {
+  --logo-w: clamp(11rem, 22vw, 16rem);
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.06em;
+  align-items: center;
+}
+
+.logo--stacked .logo-jm,
+.logo--stacked .logo-backyard-golf {
+  width: var(--logo-w);
+  height: auto;
 }
 
 .logo--stacked .logo-x {
-  align-self: center;
-  font-size: 0.5em;
-}
-
-.logo--big {
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-size: calc(var(--logo-w) * 0.17);
+  margin: calc(var(--logo-w) * 0.05) 0 calc(var(--logo-w) * 0.06);
 }
 
 .logo--header {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 /* ---------- Buttons ---------- */
@@ -184,19 +184,13 @@ img {
   right: 0;
   z-index: 100;
   height: var(--header-h);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
   padding: 0 var(--gutter);
   background: var(--iron);
-}
-
-.site-header .logo {
-  justify-self: start;
-}
-
-.header-cta {
-  justify-self: end;
 }
 
 .header-slogan {
@@ -264,14 +258,50 @@ img {
 
 /* ---------- Hero ---------- */
 
+/* Headline, context line and menu form one group, centred vertically. The
+   background: soft blurred spots in the logo colours plus a light grain. */
 .hero {
-  background: var(--sky);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--iron);
   min-height: 100svh;
-  padding: calc(var(--header-h) + 3rem) var(--gutter) 4rem;
-  display: grid;
-  grid-template-rows: 1fr auto 1fr;
-  justify-items: center;
+  padding: calc(var(--header-h) + 1.5rem) var(--gutter) 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
+
+/* Headline first, context line tight underneath, then a big gap to the menu */
+.hero-intro {
+  margin-bottom: clamp(4rem, 8svh, 5rem);
+}
+
+.hero-headline {
+  margin: 0;
+  color: var(--cream);
+  font-size: clamp(2.5rem, min(4vw, 6.4svh), 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero-context {
+  margin: clamp(0.5rem, 1.2svh, 0.75rem) 0 0;
+  color: var(--muted-on-iron);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 480px) {
+  .hero-context {
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
 }
 
 /* Text roll menu (hero) */
@@ -279,28 +309,58 @@ img {
 .hero-menu {
   list-style: none;
   padding: 0;
-  grid-row: 2;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
+  max-width: 100%;
+}
+
+/* Menu items: the four categories share one size, each in its own CI colour. */
+.hero-menu li {
+  padding: clamp(0.2rem, 0.6svh, 0.4rem) 0;
 }
 
 .tr {
   position: relative;
   display: block;
   overflow: hidden;
-  line-height: 1.1;
+  /* tall enough for descenders (g, y, p) – the word clips at its line box */
+  line-height: 1.25;
   font-weight: 800;
   letter-spacing: -0.03em;
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   text-decoration: none;
   color: var(--iron);
 }
 
-.tr--highlight {
-  color: var(--cream);
+.hero-menu-sub {
+  display: block;
+  /* pulled up into the title's descender space so the pair reads as one unit */
+  margin-top: -0.35rem;
+  line-height: 1.2;
+  font-size: clamp(1.125rem, 1.4vw, 1.25rem);
+  font-weight: 500;
+  color: #cfcfcf;
+}
+
+.tr--title {
+  font-size: clamp(2rem, min(5.5vw, 6.2svh), 4.2rem);
+  letter-spacing: -0.04em;
+}
+
+.tr--gold { color: var(--gold); }
+.tr--green { color: var(--green); }
+.tr--blush { color: var(--blush); }
+.tr--cream { color: var(--cream); }
+.tr--sky { color: var(--sky); }
+
+.tr-word {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
 }
 
 .tr-top {
@@ -346,7 +406,7 @@ img {
   gap: 1rem;
 }
 
-.row--full {
+.row--single {
   grid-template-columns: 1fr;
 }
 
@@ -359,12 +419,19 @@ img {
   border-radius: 2px;
 }
 
+/* Headline scales with the box itself (container units), not the window,
+   so it keeps the same proportion to its tile in every window size. */
+.box {
+  container-type: inline-size;
+}
+
 .box h2 {
   font-weight: 800;
   letter-spacing: -0.03em;
-  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-size: clamp(1.6rem, 8.5cqi, 2.7rem);
   line-height: 1.08;
   margin: 0;
+  text-wrap: balance;
 }
 
 .box p {
@@ -387,6 +454,11 @@ img {
 .box--green { background: var(--green); }
 .box--blush { background: var(--blush); }
 .box--sky { background: var(--sky); }
+.box--cream { background: var(--cream); }
+
+.box--cream .booking-facts li::before {
+  color: var(--iron);
+}
 
 .box--iron {
   background: var(--iron);
@@ -407,16 +479,13 @@ img {
   background: rgba(25, 25, 25, 0.08);
 }
 
-.photo img {
+.photo img,
+.photo video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.photo--band {
-  aspect-ratio: 21 / 9;
 }
 
 .booking-facts {
@@ -438,22 +507,495 @@ img {
   color: var(--gold);
 }
 
-.slot {
-  border: 1px dashed rgba(25, 25, 25, 0.45);
+/* Centred boxes: content centred both ways */
+.box--center {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.8rem;
-  min-height: 260px;
 }
 
-.slot .tag {
+.box--center {
+  gap: 1.2rem;
+  padding: 2rem 2.2rem;
+}
+
+.box--center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box--center .btn {
+  margin-top: 0.8rem;
+}
+
+/* Tighter rhythm so text-heavy centred boxes stay (close to) square */
+.box--center p {
+  margin-bottom: 0.6rem;
+  text-wrap: pretty;
+}
+
+.box--center .booking-facts {
+  margin: 1rem 0 0.6rem;
+  gap: 0.25rem;
+}
+
+/* Facts list sits centred as a block, but its lines start flush left so the
+   dashes line up underneath each other. */
+.box--center .booking-facts {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.box--sky .booking-facts li::before,
+.box--gold .booking-facts li::before,
+.box--blush .booking-facts li::before,
+.box--green .booking-facts li::before {
+  color: var(--iron);
+}
+
+/* ---------- Full-bleed scenes (.pbox: Private Box, Golf Date) ----------
+   Edge to edge and at least one screen tall: video on one side, copy on the
+   dark ground on the other (.pbox--flip swaps them). The accent colour is
+   used sparingly (kicker, price, icons, button) and set per section with
+   .pbox--gold / --green / --blush; Open Sky is the default. */
+
+.screen.pbox {
+  --pbox-accent: var(--sky);
+  --pbox-line: rgba(255, 248, 238, 0.14);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 48fr 52fr;
+  min-height: 100svh;
+  background: var(--iron);
+  color: var(--cream);
+}
+
+.screen.pbox--gold { --pbox-accent: var(--gold); }
+.screen.pbox--green { --pbox-accent: var(--green); }
+.screen.pbox--blush { --pbox-accent: var(--blush); }
+
+.screen.pbox--flip {
+  grid-template-columns: 52fr 48fr;
+}
+
+.pbox--flip .pbox-media {
+  order: 2;
+}
+
+.pbox--flip .pbox-content {
+  justify-self: end;
+}
+
+.pbox-media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--iron-raised);
+}
+
+.pbox-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The copy column is a size container, so the headline scales with the
+   column (cqi) and long words like "lieblingsmenschen." always fit. */
+.pbox-content {
+  container-type: inline-size;
+  width: 100%;
+  align-self: center;
+  max-width: 50rem;
+  padding: calc(var(--header-h) + clamp(1rem, 3svh, 3rem)) clamp(2rem, 5vw, 6.5rem) clamp(1.25rem, 4svh, 3.5rem);
+}
+
+.pbox-content p {
+  margin: 0;
+}
+
+.pbox-kicker {
+  color: var(--pbox-accent);
+  font-size: 0.85rem;
   font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.pbox-title {
+  margin: clamp(0.5rem, 1.2svh, 1rem) 0 clamp(0.8rem, 2.4svh, 1.6rem);
+  font-size: clamp(2.1rem, min(10cqi, 6.5svh), 5.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.pbox-text {
+  max-width: 60ch;
+  color: var(--muted-on-iron);
+  font-size: clamp(0.98rem, min(1.1vw, 1.9svh), 1.08rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.pbox-features {
+  list-style: none;
+  margin: clamp(1rem, 2.6svh, 2rem) 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.pbox-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: clamp(0.5rem, 1.2svh, 0.85rem) 1rem;
+  border: 1px solid var(--pbox-line);
+  border-radius: 2px;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+/* Longer lists (6 items): plain two-column icon list instead of tiles */
+.pbox-features--list {
+  gap: clamp(0.55rem, 1.3svh, 0.9rem) 1.6rem;
+}
+
+.pbox-features--list li {
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+}
+
+.pbox-features svg,
+.pbox-btn svg {
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pbox-features svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--pbox-accent);
+}
+
+.pbox-price {
+  padding-top: clamp(1rem, 2.4svh, 1.6rem);
+  border-top: 1px solid var(--pbox-line);
+}
+
+.pbox-price-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1.1rem;
+  row-gap: 0.2rem;
+}
+
+.pbox-price-amount {
+  color: var(--pbox-accent);
+  font-size: clamp(2.4rem, min(4vw, 6svh), 3.8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.pbox-price-from {
+  font-size: 0.36em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.pbox-price-unit {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Opening offer: small label, the offer price big, the regular price
+   struck through next to it. */
+.pbox-content .pbox-price-badge {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  background: var(--pbox-accent);
+  color: var(--iron);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.pbox-price-old {
+  color: var(--muted-on-iron);
+  font-size: clamp(1.5rem, min(2.2vw, 3.4svh), 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration-thickness: 2px;
+  white-space: nowrap;
+}
+
+.pbox-price-per {
+  display: block;
+  color: var(--muted-on-iron);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.pbox-content .pbox-price-offer {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--pbox-accent);
+  border-radius: 2px;
+  color: var(--pbox-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.pbox-content .pbox-price-offer + .pbox-price-note {
+  margin-top: 0.7rem;
+}
+
+.pbox-content .pbox-price-note {
+  margin-top: 0.5rem;
+  color: var(--muted-on-iron);
   font-size: 0.9rem;
 }
 
-.slot p {
-  max-width: 32ch;
+.pbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.1rem, 2.6svh, 2rem);
+}
+
+.pbox-actions .pbox-btn {
+  margin-top: 0;
+}
+
+.pbox-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: clamp(1.1rem, 2.6svh, 2rem);
+  padding: clamp(0.85rem, 1.8svh, 1.1rem) 1.5rem;
+  border-radius: 2px;
+  background: var(--pbox-accent);
+  color: var(--iron);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.pbox-btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  stroke-width: 2;
+  transition: transform 0.2s ease;
+}
+
+.pbox-btn:hover,
+.pbox-btn:focus-visible {
+  background: color-mix(in srgb, var(--pbox-accent) 70%, var(--cream));
+}
+
+.pbox-btn:hover svg,
+.pbox-btn:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.pbox-btn--ghost {
+  background: transparent;
+  color: var(--cream);
+  box-shadow: inset 0 0 0 1px rgba(255, 248, 238, 0.4);
+}
+
+.pbox-btn--ghost:hover,
+.pbox-btn--ghost:focus-visible {
+  background: rgba(255, 248, 238, 0.08);
+}
+
+.pbox-btn:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+}
+
+.pbox-content .pbox-contact {
+  margin-top: 1.1rem;
+  color: var(--muted-on-iron);
+  font-size: 0.85rem;
+}
+
+.pbox-contact a {
+  color: var(--cream);
+  text-underline-offset: 3px;
+}
+
+/* Fade-up on scroll; only when script.js is running, so the copy never
+   stays hidden without it. */
+.has-reveal [data-reveal] > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.has-reveal [data-reveal].is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+.has-reveal [data-reveal] > :nth-child(2) { transition-delay: 0.06s; }
+.has-reveal [data-reveal] > :nth-child(3) { transition-delay: 0.12s; }
+.has-reveal [data-reveal] > :nth-child(4) { transition-delay: 0.18s; }
+.has-reveal [data-reveal] > :nth-child(5) { transition-delay: 0.24s; }
+.has-reveal [data-reveal] > :nth-child(n + 6) { transition-delay: 0.3s; }
+
+/* Short desktop screens (small laptops): tighter rhythm, plain two-column
+   feature list and the opening offer next to the price, so the scenes still
+   fit one screen. */
+@media (min-width: 901px) and (max-height: 880px) {
+  .pbox-content {
+    padding-top: calc(var(--header-h) + 0.5rem);
+    padding-bottom: 0.75rem;
+  }
+
+  .pbox-title {
+    margin: 0.35rem 0 0.7rem;
+    font-size: clamp(1.9rem, min(9cqi, 6.6svh), 3.6rem);
+  }
+
+  .pbox-text {
+    font-size: 0.95rem;
+    line-height: 1.42;
+  }
+
+  .pbox-features,
+  .pbox-features--list {
+    margin: 0.8rem 0;
+    gap: 0.35rem 1.2rem;
+  }
+
+  .pbox-features li {
+    padding: 0;
+    border: 0;
+    font-size: 0.9rem;
+    align-items: flex-start;
+  }
+
+  .pbox-features svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .pbox-price {
+    padding-top: 0.8rem;
+  }
+
+  .pbox-price-amount {
+    font-size: clamp(2rem, 5.4svh, 2.8rem);
+  }
+
+  .pbox-content .pbox-price-offer {
+    margin-top: 0.4rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .pbox-content .pbox-price-badge {
+    margin-bottom: 0.4rem;
+  }
+
+  .pbox-content .pbox-price-note,
+  .pbox-content .pbox-price-offer + .pbox-price-note {
+    margin-top: 0.3rem;
+  }
+
+  .pbox-actions,
+  .pbox-btn {
+    margin-top: 0.8rem;
+  }
+
+  .pbox-btn {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .pbox-content .pbox-contact {
+    margin-top: 0.6rem;
+  }
+}
+
+/* Narrow desktops / tablets in landscape: give the copy more room */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .screen.pbox {
+    grid-template-columns: 42fr 58fr;
+  }
+
+  .screen.pbox--flip {
+    grid-template-columns: 58fr 42fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .screen.pbox {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    margin-bottom: 1rem;
+  }
+
+  /* On phones the offer comes first and its video follows, so a tap in the
+     hero menu lands on the copy, not on the video. */
+  .pbox-media,
+  .pbox--flip .pbox-media {
+    order: 2;
+    height: 58svh;
+  }
+
+  .pbox--flip .pbox-content {
+    justify-self: stretch;
+  }
+
+  .pbox-content {
+    padding: 2.4rem 1.5rem 3.2rem;
+  }
+
+  .pbox-title {
+    font-size: clamp(2rem, 9.6cqi, 3.4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .pbox-features {
+    grid-template-columns: 1fr;
+  }
+
+  .pbox-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Footer */
@@ -480,7 +1022,9 @@ footer {
 .palette-bar i:nth-child(4) { background: var(--gold); }
 
 .footer-sign {
-  margin-bottom: 4rem;
+  display: flex;
+  width: fit-content;
+  margin: 0 auto 4rem;
 }
 
 .footer-grid {
@@ -576,17 +1120,38 @@ footer {
   .screen {
     min-height: 100svh;
     padding-top: calc(var(--header-h) + 1rem);
+    justify-content: center;
   }
 
+  /* Tiles stay square and centred; on short windows the row shrinks so a
+     pair of squares always fits the screen height. */
   .screen .row {
-    flex: 1;
-    min-height: 0;
-    grid-template-rows: minmax(0, 1fr);
+    width: 100%;
+    max-width: calc((100svh - var(--header-h) - 2rem) * 2 + 1rem);
+    margin: 0 auto;
   }
 
-  .screen .photo {
-    aspect-ratio: auto;
+  /* Two equal columns; each tile is at least as tall as it is wide (square) and
+     both stretch together if the text needs more room, so photo and text box
+     are always exactly the same size. 100cqi = width of the row. */
+  .screen .row {
+    container-type: inline-size;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .screen .row > * {
+    aspect-ratio: auto;
+    min-height: calc((100cqi - 1rem) / 2);
+  }
+
+  .screen .row--single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .screen .row--single > * {
+    min-height: 0;
+  }
+
 
   .row--shop {
     grid-template-columns: repeat(3, 1fr);
@@ -595,18 +1160,6 @@ footer {
   .product-art svg {
     height: 100%;
     max-height: 100%;
-  }
-
-  .screen .row--four {
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-  }
-
-  .row--four > :nth-child(3) {
-    order: 4;
-  }
-
-  .photo--band img {
-    object-position: 50% 62% !important;
   }
 
   .palette-bar {
@@ -626,22 +1179,12 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .site-header {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .header-cta {
-    display: none;
+  .logo--header {
+    font-size: 0.95rem;
   }
 
   .header-slogan {
-    font-size: 0.8rem;
-    max-width: 8.6em;
-    white-space: normal;
-    justify-content: flex-end;
-    text-align: right;
+    font-size: 0.9rem;
   }
 
   .row {
@@ -652,14 +1195,6 @@ footer {
     padding: 1.8rem;
   }
 
-  .photo--band {
-    aspect-ratio: 3 / 4;
-  }
-
-  .photo--band img {
-    object-position: 50% 60% !important;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -667,7 +1202,7 @@ footer {
 
 @media (max-width: 480px) {
   .logo--header {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .site-header {

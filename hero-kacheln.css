@@ -1,0 +1,273 @@
+/* Variante nur zum Zeigen (hero-kacheln.html): Hero-Menü als Spotlight-Karten
+   nebeneinander. Vanilla-Nachbau der React-Komponente "GlowCard"
+   (spotlight-card.tsx); der Rand leuchtet in der CI-Farbe der jeweiligen Karte. */
+
+/* Desktop: logo and slogan sit vertically centred between the top edge and the
+   divider line. (Mobile keeps its own values in the max-width: 900px block.) */
+:root {
+  --header-h: 7.5rem;
+}
+
+.site-header {
+  padding-top: 0;
+  gap: 1.15rem;
+}
+
+/* Wider row than the content sections so the card titles fit on one line. */
+.hero {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.hero-tiles {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: left;
+}
+
+/* Header divider (desktop only): a thin line that lights up around the mouse,
+   like the cards. The glow is the CI palette (as in the footer bar), revealed
+   by a radial mask at the pointer position. */
+.header-line {
+  display: none;
+}
+
+@media (hover: hover) and (min-width: 901px) {
+  .header-line {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(255, 248, 238, 0.12);
+    pointer-events: none;
+  }
+
+  .header-line-glow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 2px;
+    background: linear-gradient(to right, var(--blush), var(--green), var(--sky), var(--gold));
+    filter: brightness(1.15) drop-shadow(0 0 4px rgba(255, 248, 238, 0.7)) drop-shadow(0 0 10px rgba(255, 248, 238, 0.35));
+    -webkit-mask-image: radial-gradient(300px 220px at calc(var(--lx, -999) * 1px) calc(var(--ly, -999) * 1px), #000 0%, #000 30%, rgba(0, 0, 0, 0.45) 60%, transparent 85%);
+    mask-image: radial-gradient(300px 220px at calc(var(--lx, -999) * 1px) calc(var(--ly, -999) * 1px), #000 0%, #000 30%, rgba(0, 0, 0, 0.45) 60%, transparent 85%);
+  }
+}
+
+/* CI colours as HSL so the glow can be tinted per card */
+.glow--sky   { --base: 195; --saturation: 67; --lightness: 74; --title: var(--sky); }
+.glow--gold  { --base: 47;  --saturation: 82; --lightness: 80; --title: var(--gold); }
+.glow--cream { --base: 35;  --saturation: 100; --lightness: 97; --title: var(--cream); }
+.glow--blush { --base: 333; --saturation: 38; --lightness: 76; --title: var(--blush); }
+.glow--green { --base: 108; --saturation: 30; --lightness: 71; --title: var(--green); }
+
+.glow-card {
+  --spread: 0;
+  --radius: 14;
+  --border: 3;
+  --backdrop: hsl(0 0% 60% / 0.12);
+  --backup-border: var(--backdrop);
+  --size: 200;
+  --outer: 1;
+  --border-size: calc(var(--border, 2) * 1px);
+  --spotlight-size: calc(var(--size, 150) * 1px);
+  --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  /* Fixed shape: same proportions in every browser and window size. */
+  aspect-ratio: 3 / 4;
+  padding: 1.2rem;
+  border-radius: calc(var(--radius) * 1px);
+  border: var(--border-size) solid var(--backup-border);
+  background-color: var(--backdrop, transparent);
+  background-image: radial-gradient(
+    var(--spotlight-size) var(--spotlight-size) at
+    calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
+    hsl(var(--hue) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.1)),
+    transparent
+  );
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-position: 50% 50%;
+  box-shadow: 0 1rem 2rem -1rem black;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-decoration: none;
+  color: var(--cream);
+}
+
+[data-glow]::before,
+[data-glow]::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  border: var(--border-size) solid transparent;
+  border-radius: calc(var(--radius) * 1px);
+  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  -webkit-mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+}
+
+[data-glow]::before {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+    calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
+    hsl(var(--hue) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)),
+    transparent 100%
+  );
+}
+
+[data-glow]::after {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+    calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
+    hsl(0 100% 100% / var(--border-light-opacity, 0.6)),
+    transparent 100%
+  );
+}
+
+[data-glow] [data-glow] {
+  position: absolute;
+  inset: 0;
+  will-change: filter;
+  opacity: var(--outer, 1);
+  border-radius: calc(var(--radius) * 1px);
+  filter: blur(calc(var(--border-size) * 10));
+  background: none;
+  pointer-events: none;
+  border: none;
+}
+
+[data-glow] > [data-glow]::before {
+  inset: -10px;
+  border-width: 10px;
+}
+
+.glow-content {
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.glow-card .tr {
+  color: var(--title);
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+  line-height: 1.12;
+}
+
+/* Video/photo fills the card behind the text; the shade keeps titles readable. */
+.glow-media,
+.glow-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: calc((var(--radius) - var(--border)) * 1px);
+}
+
+.glow-media {
+  object-fit: cover;
+}
+
+.glow-shade {
+  background: linear-gradient(to top, rgba(25, 25, 25, 0.85) 0%, rgba(25, 25, 25, 0.35) 45%, rgba(25, 25, 25, 0) 70%);
+}
+
+.hero-tile-sub {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cream);
+  opacity: 0.85;
+}
+
+/* Roll the letters when the whole card is hovered, not just the text. */
+.glow-card:hover .tr-top .tr-char,
+.glow-card:focus-visible .tr-top .tr-char {
+  transform: translateY(-100%);
+}
+
+.glow-card:hover .tr-bottom .tr-char,
+.glow-card:focus-visible .tr-bottom .tr-char {
+  transform: translateY(0);
+}
+
+/* Desktop (landscape windows): the four cards spread across the screen and fill
+   most of its height. Width = a quarter of the row; height fills the space below
+   the header, but stays between 3:4 and about 1:1.7 so the cards never get
+   stubby or needle-thin. 100cqi = width of the tile row. */
+@media (min-width: 901px) and (min-aspect-ratio: 11/10) {
+  .hero {
+    /* sides keep clear of the golf-ball scrollbar on the right */
+    padding: calc(var(--header-h) + 2rem) max(2.5vw, 4rem) 2rem;
+  }
+
+  .hero-tiles {
+    container-type: inline-size;
+    max-width: 1800px;
+    gap: 1.25rem;
+  }
+
+  .glow-card {
+    aspect-ratio: auto;
+    min-height: calc((100cqi - 3.75rem) / 4 * 4 / 3);
+    height: min(
+      calc(100svh - var(--header-h) - 4rem),
+      calc((100cqi - 3.75rem) / 4 * 1.7)
+    );
+  }
+}
+
+/* Tall, narrow desktop windows: a single row would leave the lower half empty,
+   so switch to 2 × 2 and size the cards from the window height. */
+@media (min-width: 901px) and (max-aspect-ratio: 11/10) {
+  .hero-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: min(
+      1400px,
+      calc((100svh - var(--header-h) - 9rem) * 3 / 4 + 1rem)
+    );
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-h: 8rem;
+  }
+
+  .site-header {
+    padding-top: 1.5rem;
+  }
+
+  .hero-tiles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .glow-card {
+    aspect-ratio: 4 / 5;
+  }
+
+  .glow-card .tr {
+    font-size: 1.15rem;
+  }
+}
+
+/* The tiles are tall, so the intro sits closer to them than to the text menu */
+.hero-intro {
+  margin-bottom: clamp(1.5rem, 4svh, 2.5rem);
+}

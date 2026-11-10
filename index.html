@@ -3,192 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JONNY M. x backyard GOLF — Indoor Golf &amp; Lounge</title>
-  <meta name="description" content="Same game, different place: Indoor-Golfsimulator und Lounge. Bay reservieren, Runde spielen, bleiben." />
+  <title>JONNY M. x backyard GOLF — indoor golf &amp; lounge</title>
+  <meta name="description" content="Same game, different place: Indoor-Golfsimulator und Lounge. Abschlagplatz reservieren, Runde spielen, bleiben." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261110x" />
 </head>
 <body>
 
-  <video class="bg-video" src="images/Hintergrund2-web.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
-
   <header class="site-header" id="site-header">
-    <a href="#top" class="logo logo--header">
-      <span>JONNY M.</span>
-      <span class="logo-x">x</span>
-      <span class="logo-backyard">backyard</span>
-      <span class="logo-golf">
-        <span class="golf-badge">G</span>
-        <span class="golf-badge">O</span>
-        <span class="golf-badge">L</span>
-        <span class="golf-badge">F</span>
-      </span>
+    <a href="#top" class="logo logo--header" aria-label="JONNY M. x backyard GOLF">
+      <img class="logo-jm" src="images/logo/jonny-m.png" alt="" />
+      <span class="logo-x" aria-hidden="true">x</span>
+      <img class="logo-backyard" src="images/logo/backyard.png" alt="" />
+      <img class="logo-golf" src="images/logo/golf.png" alt="" />
     </a>
     <h1 class="header-slogan l3" data-letter-swap aria-label="same game different place.">same game different place.</h1>
-    <a href="#clothing" class="btn btn-gold header-cta">Backyard GOLF Clothing</a>
   </header>
 
   <main id="top">
     <section class="hero">
+      <div class="hero-intro">
+        <p class="hero-headline">Golf, Musik, Freunde. <span class="nowrap">Rund um die Uhr.</span></p>
+        <p class="hero-context">Indoor Golf · Bietigheim-Bissingen · 24/7</p>
+      </div>
       <ul class="hero-menu" aria-label="Seitenmenü">
-        <li><a href="#booking" class="tr tr--highlight" data-text-roll>Bay buchen 24/7</a></li>
-        <li><a href="#konzept" class="tr" data-text-roll>Konzept</a></li>
-        <li><a href="#bays" class="tr" data-text-roll>Bays</a></li>
-        <li><a href="#lounge" class="tr" data-text-roll>Lounge</a></li>
-        <li><a href="#clothing" class="tr" data-text-roll>Clothing</a></li>
-        <li><a href="#kontakt" class="tr" data-text-roll>Kontakt</a></li>
+        <li>
+          <a href="#private-box" class="tr tr--title tr--sky" data-text-roll>Private Box</a>
+          <span class="hero-menu-sub">Heute schon was vor?</span>
+        </li>
+        <li>
+          <a href="#golf-date" class="tr tr--title tr--gold" data-text-roll>Golf Date</a>
+          <span class="hero-menu-sub">Euer erster Golfschlag.</span>
+        </li>
+        <li>
+          <a href="#golf-afterwork" class="tr tr--title tr--blush" data-text-roll>Golf Afterwork</a>
+          <span class="hero-menu-sub">Zusammen trifft man besser.</span>
+        </li>
+        <li>
+          <a href="#coaching" class="tr tr--title tr--green" data-text-roll>1:1 Coaching</a>
+          <span class="hero-menu-sub">Erst feilen, dann feiern.</span>
+        </li>
       </ul>
     </section>
 
-    <section class="screen">
-      <div class="row row--full">
-        <figure class="photo photo--band"><img src="images/campaign.jpg" alt="Kampagnenmotiv: Golfer schlägt auf einer Kunstrasenmatte mitten auf dem Konferenztisch" style="object-position:50% 47%" loading="lazy" /></figure>
+    <section class="screen pbox" id="private-box">
+      <figure class="pbox-media">
+        <video src="images/Hintergrund2-web.mp4" style="object-position:85% 50%" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      </figure>
+      <div class="pbox-content" data-reveal>
+        <p class="pbox-kicker">Private Box.</p>
+        <h2 class="pbox-title">Eure Box. Eure Leute. Euer Ding.</h2>
+        <p class="pbox-text">Bis zu 6&nbsp;Personen, 24/7 buchbar, mit Code rein&nbsp;– ganz&nbsp;ohne Personal, ganz&nbsp;ohne Dresscode. Spielt die berühmtesten Golfplätze der Welt, fordert euch bei Minigames heraus oder lasst den Abend auf der 5‑Meter‑Leinwand ausklingen.</p>
+        <ul class="pbox-features">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+            <span>Bis zu 6&nbsp;Personen</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 22h8" /><path d="M7 10h10" /><path d="M12 15v7" /><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" /></svg>
+            <span>Lounge mit Getränken</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></svg>
+            <span>Musik über eure eigene Playlist</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+            <span>Essen mitbringen oder bestellen</span>
+          </li>
+        </ul>
+        <div class="pbox-price">
+          <p class="pbox-price-main"><span class="pbox-price-amount"><span class="pbox-price-from">Ab</span> 32&nbsp;€</span> <span class="pbox-price-unit"><span class="nowrap">pro Stunde,</span> <span class="nowrap">für die ganze Box</span></span></p>
+          <p class="pbox-price-note">Bei 4 Leuten ab 8&nbsp;€ pro Person.</p>
+        </div>
+        <!-- TODO: echten Trackman-Buchungslink eintragen -->
+        <a href="#" class="pbox-btn" target="_blank" rel="noopener">Jetzt Box buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+        <p class="pbox-contact">Fragen zur Buchung? <a href="mailto:reservierung@backyardgolf.example">reservierung@backyardgolf.example</a></p>
       </div>
     </section>
 
-    <section class="screen" id="konzept">
-      <div class="row">
-        <div class="box box--gold">
-          <h2>Selbes Spiel.<br />Anderer Ort.</h2>
-          <div>
-            <p>Draußen entscheidet das Wetter, drinnen der Zeitplan. Der Screen ersetzt den Himmel, der Bay-Teppich das Fairway — der Rest bleibt Golf.</p>
-            <p>Was sich ändert, ist der Ort danach: kein Weg zum Auto, nur ein paar Schritte zum Sofa.</p>
-          </div>
+    <section class="screen pbox pbox--flip pbox--gold" id="golf-date">
+      <figure class="pbox-media">
+        <video src="images/freuen-web.mp4" style="object-position:44% 50%" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      </figure>
+      <div class="pbox-content" data-reveal>
+        <p class="pbox-kicker">Golf Date.</p>
+        <h2 class="pbox-title">Golf lernen mit deinem Lieblingsmenschen.</h2>
+        <p class="pbox-text">Ihr habt noch nie einen Golfschläger in der Hand gehabt? Perfekt. In&nbsp;75&nbsp;Minuten zeigt euch unser Coach die Basics, ohne Fachchinesisch und ohne Druck. Danach probiert ihr euch ganz entspannt aus, entdeckt verschiedene Spielarten und findet heraus, was euch Spaß macht, mit Musik und Getränken in eurer eigenen Box.</p>
+        <ul class="pbox-features">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+            <span>75&nbsp;Minuten für euch zwei</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+            <span>Persönlicher Coach</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><path d="M9 9h.01" /><path d="M15 9h.01" /></svg>
+            <span>Keine Vorkenntnisse, keine Ausrüstung nötig</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" /></svg>
+            <span>Entdecken in eurem Tempo, ganz ohne Leistungsdruck</span>
+          </li>
+        </ul>
+        <div class="pbox-price">
+          <p class="pbox-price-badge">Zum Opening</p>
+          <p class="pbox-price-main"><span class="pbox-price-amount">59&nbsp;€</span> <s class="pbox-price-old"><span class="visually-hidden">statt </span>89&nbsp;€</s> <span class="pbox-price-unit">für euch beide <span class="pbox-price-per">unter 30&nbsp;€ pro Person</span></span></p>
+          <p class="pbox-price-note">Zu dritt oder viert? +20&nbsp;€ pro Person.</p>
         </div>
-        <figure class="photo"><img src="images/konzept-sofa.jpg" alt="Mann sitzt entspannt auf einem Ledersofa in einem holzvertäfelten Raum, einen Fuß auf einem Ball" loading="lazy" /></figure>
-      </div>
-    </section>
-
-    <section class="screen" id="bays">
-      <div class="row row--four">
-        <figure class="photo"><img src="images/bay-1-putting.jpg" alt="Hand in weißem Handschuh legt einen Golfball auf das Green, daneben ein Putter" style="object-position:50% 55%" loading="lazy" /></figure>
-        <div class="box box--green">
-          <h2>Spiel</h2>
-          <div>
-            <p class="lead">Für die ernste Runde.</p>
-            <p>18 Loch auf über 100 Plätzen weltweit, mit vollem Tracking von Carry, Spin und Ballgeschwindigkeit. 1–4 Personen, Schläger und Bälle sind vor Ort.</p>
-          </div>
-        </div>
-        <figure class="photo"><img src="images/bay-2-players.jpg" alt="Zwei Golfer in Karo-Hosen und Schiebermützen posieren verspielt auf dem Rasen" style="object-position:50% 30%" loading="lazy" /></figure>
-        <div class="box box--green">
-          <h2>Fun</h2>
-          <div>
-            <p class="lead">Für Longest Drive &amp; Minispiele.</p>
-            <p>Target-Games, Longest-Drive-Contests, kurze Runden zwischendurch. Bis zu 6 Personen, gut für Gruppen und Geburtstage.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen" id="lounge">
-      <div class="row">
-        <figure class="photo"><img src="images/lounge-bench.jpg" alt="Mann bindet sich auf einer Lederbank vor holzvertäfelter Wand die Schuhe, daneben eine Golftasche" style="object-position:50% 65%" loading="lazy" /></figure>
-        <div class="box box--blush">
-          <h2>Der Teil<br />ohne Schläger</h2>
-          <div>
-            <p><strong>Bar.</strong> Bier, Wein und ein paar Cocktails.</p>
-            <p><strong>Sitzbereich.</strong> Sofas statt Barhocker, Platz für Gruppen.</p>
-            <p><strong>Sound.</strong> Leise genug zum Reden, laut genug für Stimmung.</p>
-          </div>
+        <div class="pbox-actions">
+          <!-- TODO: echten Trackman-Buchungslink eintragen -->
+          <a href="#" class="pbox-btn" target="_blank" rel="noopener">Golf Date buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+          <!-- TODO: Gutschein-Link eintragen -->
+          <a href="#" class="pbox-btn pbox-btn--ghost">Als Gutschein verschenken</a>
         </div>
       </div>
     </section>
 
-    <section class="screen" id="booking">
-      <div class="row">
-        <div class="box box--iron">
-          <h2>Bay reservieren</h2>
-          <div>
-            <p>60 Min. ab 25 € pro Bay, Verlängerung im 30-Min-Takt.</p>
-            <ul class="booking-facts">
-              <li>Bis 4 Personen pro Bay</li>
-              <li>Schläger und Bälle inklusive</li>
-              <li>Getränke von der Bar</li>
-            </ul>
-            <a href="mailto:reservierung@backyardgolf.example" class="btn btn-gold">Direkt anfragen</a>
-          </div>
+    <section class="screen pbox pbox--blush" id="golf-afterwork">
+      <figure class="pbox-media">
+        <video src="images/event-web.mp4" style="object-position:45% 50%" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      </figure>
+      <div class="pbox-content" data-reveal>
+        <p class="pbox-kicker">Golf Afterwork.</p>
+        <h2 class="pbox-title">Euer Abend mit Freunden oder Team.</h2>
+        <p class="pbox-text">Ihr bringt die Leute mit, wir den Plan. In der ersten Stunde nimmt euch unser Coach an die Hand und zeigt allen, wie es geht, egal ob jemand schon mal gespielt hat oder nicht. Danach wird’s spannend: Bei Challenges und Spielen gegeneinander vergeht die Zeit wie im Flug. Wer am Ende vorne liegt, bekommt die offizielle Backyard-Siegerurkunde. Und wenn ihr noch nicht genug habt, läuft danach Film, Fußball oder Musik auf der 5‑Meter‑Leinwand in&nbsp;4K.</p>
+        <ul class="pbox-features pbox-features--list">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+            <span>4–6&nbsp;Personen, 3&nbsp;Stunden</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="m16 11 2 2 4-4" /></svg>
+            <span>1&nbsp;Stunde mit persönlichem Coach</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+            <span>Challenges &amp; Spiele gegeneinander</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></svg>
+            <span>Siegerurkunde für den Champion</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="15" x="2" y="7" rx="2" ry="2" /><path d="m17 2-5 5-5-5" /></svg>
+            <span>5‑Meter‑Leinwand in&nbsp;4K für den Ausklang</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+            <span>Essen mitbringen oder bestellen</span>
+          </li>
+        </ul>
+        <div class="pbox-price">
+          <p class="pbox-price-badge">Zum Opening</p>
+          <p class="pbox-price-main"><span class="pbox-price-amount">179&nbsp;€</span> <s class="pbox-price-old"><span class="visually-hidden">statt </span>219&nbsp;€</s> <span class="pbox-price-unit">für die ganze Gruppe <span class="pbox-price-per">ab 30&nbsp;€ pro Person</span></span></p>
+          <p class="pbox-price-note">Für Firmen: Rechnung auf euer Unternehmen.</p>
         </div>
-        <div class="box box--sky slot">
-          <span class="tag">Buchungssystem folgt</span>
-          <p>Hier wird das Online-Buchungssystem eingebunden — Zeitfenster wählen, direkt bestätigen.</p>
+        <div class="pbox-actions">
+          <!-- TODO: echten Trackman-Buchungslink eintragen -->
+          <a href="#" class="pbox-btn" target="_blank" rel="noopener">Afterwork buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+          <a href="mailto:events@backyardgolf.example?subject=Firmenanfrage%20Golf%20Afterwork" class="pbox-btn pbox-btn--ghost">Firmenanfrage</a>
         </div>
       </div>
     </section>
 
-    <section class="screen" id="clothing">
-      <div class="row row--shop">
-        <div class="box box--gold">
-          <h2>Backyard GOLF<br />Clothing</h2>
-          <div>
-            <p>Zwei Shirts für die Runde und danach. Kleine Auflage, gemacht für alle, die Golf auch drinnen spielen.</p>
-            <p>Bestellung aktuell per Mail, ein Shop-System folgt.</p>
-          </div>
+    <section class="screen pbox pbox--flip pbox--green" id="coaching">
+      <figure class="pbox-media">
+        <video src="images/trainer-web.mp4" style="object-position:50% 50%" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      </figure>
+      <div class="pbox-content" data-reveal>
+        <p class="pbox-kicker">1:1 Coaching.</p>
+        <h2 class="pbox-title">Persönliches Training an deinem Schwung.</h2>
+        <p class="pbox-text">Du spielst schon oder willst nach deinem ersten Golf Date mehr? Im Einzeltraining arbeiten wir gezielt an deinem Schwung, in deinem Tempo und ohne Golf‑Snobismus. Der Trackman zeigt dir genau, was bei jedem Schlag passiert, und gemeinsam machen wir daraus einen Plan, der zu dir passt.</p>
+        <ul class="pbox-features">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+            <span>60&nbsp;Minuten nur für dich</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>
+            <span>Präzise Analyse mit Trackman‑Daten</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
+            <span>Training in deinem Tempo</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" /></svg>
+            <span>Box inklusive</span>
+          </li>
+        </ul>
+        <div class="pbox-price">
+          <p class="pbox-price-main"><span class="pbox-price-amount">60&nbsp;€</span> <span class="pbox-price-unit">pro Stunde</span></p>
+          <p class="pbox-price-offer">5er‑Karte: 270&nbsp;€ <span class="nowrap">(54&nbsp;€ pro Stunde, 10&nbsp;% gespart)</span></p>
         </div>
-        <div class="box box--blush product">
-          <div class="product-art">
-            <svg viewBox="10 8 180 182" role="img" aria-label="Shirt in Iron Grey mit Creme-Logo" font-family="Inter, sans-serif">
-              <path d="M60 20 L85 12 Q100 30 115 12 L140 20 L185 55 L165 85 L145 72 L145 185 L55 185 L55 72 L35 85 L15 55 Z" fill="var(--iron)"/>
-              <path d="M85 12 Q100 30 115 12 Q100 38 85 12 Z" fill="rgba(0,0,0,0.18)"/>
-              <text x="65" y="103" font-size="11" font-weight="800" fill="var(--cream)" letter-spacing="-0.2">JONNY M.</text>
-              <text x="91" y="115" text-anchor="middle" font-size="7" font-weight="700" fill="var(--cream)">x</text>
-              <text x="65" y="135" font-size="17" font-weight="800" fill="var(--cream)" letter-spacing="-0.4">backyard</text>
-              <circle cx="73" cy="152" r="8" fill="none" stroke="var(--cream)" stroke-width="1.6"/><text x="73" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--cream)">G</text><circle cx="92" cy="152" r="8" fill="none" stroke="var(--cream)" stroke-width="1.6"/><text x="92" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--cream)">O</text><circle cx="111" cy="152" r="8" fill="none" stroke="var(--cream)" stroke-width="1.6"/><text x="111" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--cream)">L</text><circle cx="130" cy="152" r="8" fill="none" stroke="var(--cream)" stroke-width="1.6"/><text x="130" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--cream)">F</text>
-            </svg>
-          </div>
-          <div class="product-meta">
-            <p class="lead">Logo Tee, Iron Grey</p>
-            <p>45 € · S M L XL</p>
-            <a href="mailto:shop@backyardgolf.example?subject=Bestellung%20Logo%20Tee%20Iron%20Grey" class="btn">Bestellen</a>
-          </div>
-        </div>
-        <div class="box box--green product">
-          <div class="product-art">
-            <svg viewBox="10 8 180 182" role="img" aria-label="Shirt in Cream mit farbigem Logo" font-family="Inter, sans-serif">
-              <path d="M60 20 L85 12 Q100 30 115 12 L140 20 L185 55 L165 85 L145 72 L145 185 L55 185 L55 72 L35 85 L15 55 Z" fill="var(--cream)"/>
-              <path d="M85 12 Q100 30 115 12 Q100 38 85 12 Z" fill="rgba(0,0,0,0.18)"/>
-              <text x="65" y="103" font-size="11" font-weight="800" fill="var(--iron)" letter-spacing="-0.2">JONNY M.</text>
-              <text x="91" y="115" text-anchor="middle" font-size="7" font-weight="700" fill="var(--iron)">x</text>
-              <text x="65" y="135" font-size="17" font-weight="800" fill="var(--iron)" letter-spacing="-0.4">backyard</text>
-              <circle cx="73" cy="152" r="8" fill="var(--blush)" stroke="var(--iron)" stroke-width="1.6"/><text x="73" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--iron)">G</text><circle cx="92" cy="152" r="8" fill="var(--green)" stroke="var(--iron)" stroke-width="1.6"/><text x="92" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--iron)">O</text><circle cx="111" cy="152" r="8" fill="var(--sky)" stroke="var(--iron)" stroke-width="1.6"/><text x="111" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--iron)">L</text><circle cx="130" cy="152" r="8" fill="var(--gold)" stroke="var(--iron)" stroke-width="1.6"/><text x="130" y="152.4" text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="800" fill="var(--iron)">F</text>
-            </svg>
-          </div>
-          <div class="product-meta">
-            <p class="lead">Logo Tee, Cream</p>
-            <p>45 € · S M L XL</p>
-            <a href="mailto:shop@backyardgolf.example?subject=Bestellung%20Logo%20Tee%20Cream" class="btn">Bestellen</a>
-          </div>
-        </div>
+        <a href="mailto:training@backyardgolf.example?subject=1%3A1%20Coaching" class="pbox-btn">Coaching anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
       </div>
     </section>
+
   </main>
 
   <footer id="kontakt">
     <div class="palette-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <div class="footer-sign logo logo--stacked logo--big">
-        <span>JONNY M.</span>
-        <span class="logo-x">x</span>
-        <span class="logo-backyard">backyard</span>
-        <span class="logo-golf">
-          <span class="golf-badge">G</span>
-          <span class="golf-badge">O</span>
-          <span class="golf-badge">L</span>
-          <span class="golf-badge">F</span>
-        </span>
+      <div class="footer-sign logo logo--stacked" role="img" aria-label="JONNY M. x backyard GOLF">
+        <img class="logo-jm" src="images/logo/jonny-m.png" alt="" />
+        <span class="logo-x" aria-hidden="true">x</span>
+        <img class="logo-backyard-golf" src="images/logo/backyard-golf.png" alt="" />
       </div>
       <div class="footer-grid">
         <div>
           <h4>Adresse</h4>
-          <p>Adresse folgt</p>
-          <p>Stadt, PLZ</p>
+          <p>Otto-Konz-Straße 12</p>
+          <p>74321 Bietigheim-Bissingen</p>
+          <p>Direkt an der B27</p>
         </div>
         <div>
           <h4>Öffnungszeiten</h4>
-          <p>Di–Do 16–23 Uhr</p>
-          <p>Fr–Sa 14–01 Uhr</p>
-          <p>So 14–22 Uhr</p>
+          <p>Rund um die Uhr geöffnet</p>
+          <p>7 Tage die Woche</p>
         </div>
         <div>
           <h4>Kontakt</h4>
@@ -197,8 +234,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 JONNY M. x backyard GOLF</span>
-        <span>Adresse und Anfahrt folgen</span>
+        <span>© 2026 <span class="brand">JONNY M. x backyard GOLF</span></span>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Otto-Konz-Stra%C3%9Fe+12%2C+74321+Bietigheim-Bissingen" target="_blank" rel="noopener">Route planen</a>
       </div>
     </div>
   </footer>
@@ -207,6 +244,6 @@
   <div class="ballbar-track" aria-hidden="true"></div>
   <div class="ballbar-ball" aria-hidden="true"></div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20261110x"></script>
 </body>
 </html>

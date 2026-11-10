@@ -91,9 +91,6 @@ const initLetterSwap = (root) => {
 
 document.querySelectorAll("[data-letter-swap]").forEach(initLetterSwap);
 
-const bgVideo = document.querySelector(".bg-video");
-if (bgVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) bgVideo.pause();
-
 /* Text roll: letters slide up and are replaced by an identical row from below, staggered from the center. */
 
 document.querySelectorAll("[data-text-roll]").forEach((el) => {
@@ -102,24 +99,38 @@ document.querySelectorAll("[data-text-roll]").forEach((el) => {
   const stagger = 0.035;
   const center = (chars.length - 1) / 2;
 
-  const buildRow = (className) => {
+  // Rows are built per word so long labels can wrap without breaking the roll.
+  const buildRow = (className, start, end) => {
     const row = document.createElement("span");
     row.className = className;
-    row.setAttribute("aria-hidden", "true");
-    chars.forEach((char, i) => {
+    for (let i = start; i < end; i++) {
       const span = document.createElement("span");
       span.className = "tr-char";
       span.style.transitionDelay = `${(stagger * Math.abs(i - center)).toFixed(3)}s`;
-      span.textContent = char;
+      span.textContent = chars[i];
       row.appendChild(span);
-    });
+    }
     return row;
   };
 
   el.setAttribute("aria-label", text);
   el.textContent = "";
-  el.appendChild(buildRow("tr-top"));
-  el.appendChild(buildRow("tr-bottom"));
+  let start = 0;
+  chars.forEach((char, i) => {
+    const isLast = i === chars.length - 1;
+    if (char !== " " && !isLast) return;
+    const end = isLast && char !== " " ? i + 1 : i;
+    if (end > start) {
+      const word = document.createElement("span");
+      word.className = "tr-word";
+      word.setAttribute("aria-hidden", "true");
+      word.appendChild(buildRow("tr-top", start, end));
+      word.appendChild(buildRow("tr-bottom", start, end));
+      el.appendChild(word);
+    }
+    if (char === " ") el.appendChild(document.createTextNode(" "));
+    start = i + 1;
+  });
 });
 
 /* Golf ball scrollbar: the ball follows the scroll position and can be dragged or the track clicked. */
@@ -173,4 +184,28 @@ if (ball && track && hit) {
   window.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync);
   sync();
+}
+
+/* Fade-up on scroll for [data-reveal] blocks (styles: .has-reveal in styles.css).
+   Plain scroll check instead of IntersectionObserver: it also fires reliably
+   with scroll snapping and programmatic jumps from the menu. */
+{
+  let pending = Array.from(document.querySelectorAll("[data-reveal]"));
+  if (pending.length) {
+    document.documentElement.classList.add("has-reveal");
+    const check = () => {
+      pending = pending.filter((block) => {
+        if (block.getBoundingClientRect().top > window.innerHeight * 0.85) return true;
+        block.classList.add("is-visible");
+        return false;
+      });
+      if (!pending.length) {
+        window.removeEventListener("scroll", check);
+        window.removeEventListener("resize", check);
+      }
+    };
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    check();
+  }
 }
