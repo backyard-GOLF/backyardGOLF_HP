@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JONNY M. x backyard GOLF — indoor golf &amp; lounge</title>
-  <meta name="description" content="Same game, different place: Indoor-Golfsimulator und Lounge. Abschlagplatz reservieren, Runde spielen, bleiben." />
+  <meta name="description" content="Same game, different place: Indoor-Golfsimulator mit Trackman und Lounge in Bietigheim-Bissingen. Abschlagplatz reservieren, Runde spielen, bleiben." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261110x" />
+  <link rel="stylesheet" href="styles.css?v=20261113l" />
 </head>
 <body>
 
@@ -23,27 +23,90 @@
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-intro">
-        <p class="hero-headline">Golf, Musik, Freunde. <span class="nowrap">Rund um die Uhr.</span></p>
-        <p class="hero-context">Indoor Golf · Bietigheim-Bissingen · 24/7</p>
+    <section class="hero hero--sim">
+      <div class="hsim-stage">
+        <!-- Platzhalter: sobald es Aufnahmen vom Simulator gibt (Leinwand + Abschlag), hier das Video tauschen. -->
+        <video class="hsim-media" src="images/Hintergrund2-web.mp4" style="object-position:60% 50%" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <svg class="hsim-tracer" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path class="hsim-tracer-path" pathLength="1" d="M560 540 C 640 260, 790 180, 880 250" />
+          <circle class="hsim-tracer-ball" cx="880" cy="250" r="7" />
+        </svg>
+        <dl class="hsim-stats" aria-label="Beispiel-Schlagdaten vom Trackman">
+          <div><dt>Carry</dt><dd>168&nbsp;m</dd></div>
+          <div><dt>Ballspeed</dt><dd>214&nbsp;km/h</dd></div>
+          <div><dt>Abflug</dt><dd>14,2°</dd></div>
+        </dl>
+        <div class="hsim-copy">
+          <p class="hsim-kicker">Mit Trackman · <span class="nowrap">Bietigheim-Bissingen · 24/7</span></p>
+          <h2 class="hsim-title"><span class="hsim-title-line">Indoor-Golfsimulator.</span> Eure eigene Box.</h2>
+          <p class="hsim-lead">Golf, Musik, Freunde: am Trackman auf der 5‑Meter‑Leinwand, mit Code rein, ganz ohne Personal. Auch ohne Golf‑Erfahrung.</p>
+          <div class="hsim-actions">
+            <!-- TODO: echte Trackman-URL eintragen --><a href="#" class="hsim-btn" target="_blank" rel="noopener">Box buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+          </div>
+        </div>
       </div>
-      <ul class="hero-menu" aria-label="Seitenmenü">
-        <li>
-          <a href="#private-box" class="tr tr--title tr--sky" data-text-roll>Private Box</a>
-          <span class="hero-menu-sub">Heute schon was vor?</span>
+      <ul class="hoffers" id="angebote" aria-label="Unsere vier Angebote">
+        <li class="hoffer hoffer--sky">
+          <a href="#private-box">
+            <span class="hoffer-top">
+              <span class="hoffer-fact">bis 6 Personen · 24/7</span>
+            </span>
+            <span class="hoffer-head">
+              <span class="hoffer-title tr tr--sky" data-text-roll>Private Box</span>
+              <span class="hoffer-sub">Die ganze Box mit Trackman, bis zu 6&nbsp;Leute.</span>
+            </span>
+            <span class="hoffer-foot">
+              <span class="hoffer-price"><span class="hoffer-amount"><strong>ab 32&nbsp;€</strong></span> <span class="hoffer-unit">pro Stunde</span></span>
+              <span class="hoffer-mode">direkt buchbar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
+            </span>
+          </a>
         </li>
-        <li>
-          <a href="#golf-date" class="tr tr--title tr--gold" data-text-roll>Golf Date</a>
-          <span class="hero-menu-sub">Euer erster Golfschlag.</span>
+        <li class="hoffer hoffer--gold hoffer--opening">
+          <a href="#golf-date">
+            <span class="hoffer-top">
+              <span class="hoffer-fact">60 Min. · zu zweit</span>
+              <span class="hoffer-badge">Opening<span class="hoffer-badge-long">-Preis</span></span>
+            </span>
+            <span class="hoffer-head">
+              <span class="hoffer-title tr tr--gold" data-text-roll>Golf Date</span>
+              <span class="hoffer-sub">Zu zweit Golf lernen, mit Coach.</span>
+            </span>
+            <span class="hoffer-foot">
+              <span class="hoffer-price"><span class="hoffer-amount"><strong>59&nbsp;€</strong> <s class="hoffer-old"><span class="visually-hidden">statt </span>89&nbsp;€</s></span> <span class="hoffer-unit">für euch beide</span></span>
+              <span class="hoffer-mode">auf Anfrage <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
+            </span>
+          </a>
         </li>
-        <li>
-          <a href="#golf-afterwork" class="tr tr--title tr--blush" data-text-roll>Golf Afterwork</a>
-          <span class="hero-menu-sub">Zusammen trifft man besser.</span>
+        <li class="hoffer hoffer--blush hoffer--opening">
+          <a href="#golf-afterwork">
+            <span class="hoffer-top">
+              <span class="hoffer-fact">3 Std. · 4–6 Personen</span>
+              <span class="hoffer-badge">Opening<span class="hoffer-badge-long">-Preis</span></span>
+            </span>
+            <span class="hoffer-head">
+              <span class="hoffer-title tr tr--blush" data-text-roll>Golf Afterwork</span>
+              <span class="hoffer-sub">3&nbsp;Stunden mit Freunden oder Team, inklusive Coach.</span>
+            </span>
+            <span class="hoffer-foot">
+              <span class="hoffer-price"><span class="hoffer-amount"><strong>179&nbsp;€</strong> <s class="hoffer-old"><span class="visually-hidden">statt </span>219&nbsp;€</s></span> <span class="hoffer-unit">für die Gruppe</span></span>
+              <span class="hoffer-mode">auf Anfrage <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
+            </span>
+          </a>
         </li>
-        <li>
-          <a href="#coaching" class="tr tr--title tr--green" data-text-roll>1:1 Coaching</a>
-          <span class="hero-menu-sub">Erst feilen, dann feiern.</span>
+        <li class="hoffer hoffer--green">
+          <a href="#coaching">
+            <span class="hoffer-top">
+              <span class="hoffer-fact">60 Min. · 1:1</span>
+            </span>
+            <span class="hoffer-head">
+              <span class="hoffer-title tr tr--green" data-text-roll>1:1 Coaching</span>
+              <span class="hoffer-sub">Training an deinem Schwung, mit Trackman‑Analyse.</span>
+            </span>
+            <span class="hoffer-foot">
+              <span class="hoffer-price"><span class="hoffer-amount"><strong>60&nbsp;€</strong></span> <span class="hoffer-unit">pro Stunde</span></span>
+              <span class="hoffer-mode">auf Anfrage <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
+            </span>
+          </a>
         </li>
       </ul>
     </section>
@@ -55,7 +118,7 @@
       <div class="pbox-content" data-reveal>
         <p class="pbox-kicker">Private Box.</p>
         <h2 class="pbox-title">Eure Box. Eure Leute. Euer Ding.</h2>
-        <p class="pbox-text">Bis zu 6&nbsp;Personen, 24/7 buchbar, mit Code rein&nbsp;– ganz&nbsp;ohne Personal, ganz&nbsp;ohne Dresscode. Spielt die berühmtesten Golfplätze der Welt, fordert euch bei Minigames heraus oder lasst den Abend auf der 5‑Meter‑Leinwand ausklingen.</p>
+        <p class="pbox-text">Bis zu 6&nbsp;Personen, 24/7 buchbar, mit Code rein&nbsp;– ganz&nbsp;ohne Personal, ganz&nbsp;ohne Dresscode. Spielt am Trackman die berühmtesten Golfplätze der Welt, fordert euch bei Minigames heraus oder lasst den Abend auf der 5‑Meter‑Leinwand ausklingen.</p>
         <ul class="pbox-features">
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
@@ -91,11 +154,11 @@
       <div class="pbox-content" data-reveal>
         <p class="pbox-kicker">Golf Date.</p>
         <h2 class="pbox-title">Golf lernen mit deinem Lieblingsmenschen.</h2>
-        <p class="pbox-text">Ihr habt noch nie einen Golfschläger in der Hand gehabt? Perfekt. In&nbsp;75&nbsp;Minuten zeigt euch unser Coach die Basics, ohne Fachchinesisch und ohne Druck. Danach probiert ihr euch ganz entspannt aus, entdeckt verschiedene Spielarten und findet heraus, was euch Spaß macht, mit Musik und Getränken in eurer eigenen Box.</p>
+        <p class="pbox-text">Ihr habt noch nie einen Golfschläger in der Hand gehabt? Perfekt. In&nbsp;60&nbsp;Minuten zeigt euch unser Coach die Basics, ohne Fachchinesisch und ohne Druck. Danach probiert ihr euch ganz entspannt am Trackman aus, entdeckt verschiedene Spielarten und findet heraus, was euch Spaß macht, mit Musik und Getränken in eurer eigenen Box.</p>
         <ul class="pbox-features">
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
-            <span>75&nbsp;Minuten für euch zwei</span>
+            <span>60&nbsp;Minuten für euch zwei</span>
           </li>
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
@@ -116,8 +179,7 @@
           <p class="pbox-price-note">Zu dritt oder viert? +20&nbsp;€ pro Person.</p>
         </div>
         <div class="pbox-actions">
-          <!-- TODO: echten Trackman-Buchungslink eintragen -->
-          <a href="#" class="pbox-btn" target="_blank" rel="noopener">Golf Date buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+          <a href="mailto:reservierung@backyardgolf.example?subject=Anfrage%20Golf%20Date" class="pbox-btn">Golf Date anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
           <!-- TODO: Gutschein-Link eintragen -->
           <a href="#" class="pbox-btn pbox-btn--ghost">Als Gutschein verschenken</a>
         </div>
@@ -131,7 +193,7 @@
       <div class="pbox-content" data-reveal>
         <p class="pbox-kicker">Golf Afterwork.</p>
         <h2 class="pbox-title">Euer Abend mit Freunden oder Team.</h2>
-        <p class="pbox-text">Ihr bringt die Leute mit, wir den Plan. In der ersten Stunde nimmt euch unser Coach an die Hand und zeigt allen, wie es geht, egal ob jemand schon mal gespielt hat oder nicht. Danach wird’s spannend: Bei Challenges und Spielen gegeneinander vergeht die Zeit wie im Flug. Wer am Ende vorne liegt, bekommt die offizielle Backyard-Siegerurkunde. Und wenn ihr noch nicht genug habt, läuft danach Film, Fußball oder Musik auf der 5‑Meter‑Leinwand in&nbsp;4K.</p>
+        <p class="pbox-text">Ihr bringt die Leute mit, wir den Plan. In der ersten Stunde nimmt euch unser Coach an die Hand und zeigt allen, wie es geht, egal ob jemand schon mal gespielt hat oder nicht. Danach wird’s spannend: Bei Challenges und Spielen am Trackman gegeneinander vergeht die Zeit wie im Flug. Wer am Ende vorne liegt, bekommt die offizielle Backyard-Siegerurkunde. Und wenn ihr noch nicht genug habt, läuft danach Film, Fußball oder Musik auf der 5‑Meter‑Leinwand in&nbsp;4K.</p>
         <ul class="pbox-features pbox-features--list">
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
@@ -164,8 +226,7 @@
           <p class="pbox-price-note">Für Firmen: Rechnung auf euer Unternehmen.</p>
         </div>
         <div class="pbox-actions">
-          <!-- TODO: echten Trackman-Buchungslink eintragen -->
-          <a href="#" class="pbox-btn" target="_blank" rel="noopener">Afterwork buchen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+          <a href="mailto:events@backyardgolf.example?subject=Anfrage%20Golf%20Afterwork" class="pbox-btn">Afterwork anfragen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
           <a href="mailto:events@backyardgolf.example?subject=Firmenanfrage%20Golf%20Afterwork" class="pbox-btn pbox-btn--ghost">Firmenanfrage</a>
         </div>
       </div>
@@ -244,6 +305,6 @@
   <div class="ballbar-track" aria-hidden="true"></div>
   <div class="ballbar-ball" aria-hidden="true"></div>
 
-  <script src="script.js?v=20261110x"></script>
+  <script src="script.js?v=20261111a"></script>
 </body>
 </html>
